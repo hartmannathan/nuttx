@@ -39,7 +39,7 @@
 
 #define HAVE_CCM_HEAP 1
 
-/* Only the STM32 F2, F3, and F4 have CCM memory */
+/* Only the STM32 F2, F3, F4, and G4 have CCM memory */
 
 #if defined(CONFIG_STM32_STM32F30XX)
 #  define CCM_START 0x10000000
@@ -48,6 +48,12 @@
       defined(CONFIG_STM32_STM32F33XX)
 #  define CCM_START 0x10000000
 #  define CCM_END   0x10010000
+#elif defined(CONFIG_STM32_STM32G43XX)
+#  define CCM_START 0x10000000
+#  define CCM_END   0x10002800
+#elif defined(CONFIG_STM32_STM32G47XX)
+#  define CCM_START 0x10000000
+#  define CCM_END   0x10008000
 #else
 #  undef HAVE_CCM_HEAP
 #endif
